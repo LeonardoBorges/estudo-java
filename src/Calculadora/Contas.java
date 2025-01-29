@@ -33,9 +33,7 @@ public class Contas {
         return this.num1 * num1;
     }
 
-    public logaritimo(){
 
-    }
 
 
 
