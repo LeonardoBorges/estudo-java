@@ -5,8 +5,8 @@ public class Ex3  {
 
     public int exponencial(int base, int expo){
         int resultado = 1;
-
-        for (int i = 1; i<=expo;i++){
+        int expoM = Math.abs(expo);
+        for (int i = 1; i<=expoM;i++){
             resultado *= base;
         }
         return resultado;

@@ -8,32 +8,34 @@ public class Ex2 {
     }
 
     public String quadrado() {
-        int somaImpares = 0;
-        int contador = 0;
+        int somaImpar = 0;
+        int cont = 0;
         int i = 1;
-        int[] impares = new int[num];
+        int[] impares = new int[num]; // array do tamanho de num
 
 
-        while (contador < num) {
+        while (cont < num) {
             if (i % 2 != 0) {
-                impares[contador] = i;
-                somaImpares += i;
-                contador++;
+                impares[cont] = i; //impares[0] = 1
+                somaImpar += i; // 0 + 1
+                cont++;
             }
             i++;
         }
 
 
+        // concatena o exemplo ( 1 + 3...)
         StringBuilder resultado = new StringBuilder();
         resultado.append("A soma dos " + num + " primeiros ímpares (");
-        for (int j = 0; j < impares.length; j++) {
-            resultado.append(impares[j]);
-            if (j < impares.length - 1) {
-                resultado.append("+");
+        for (int j = 0; j < impares.length; j++) { // j  do tamanho do array impares
+            resultado.append(impares[j]); // concatena o numero em resultado
+            if (j < impares.length - 1) { // se nao for o o ultimo numero
+                resultado.append("+"); // adiciona o "+"
             }
         }
 
-        resultado.append(") = " + somaImpares);
-        return resultado.toString();
+        resultado.append(") = " + somaImpar + " que é o quadrado de " + num);
+        return resultado.toString(); // converte em String
+
     }
 }
