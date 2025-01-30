@@ -19,24 +19,24 @@ public class Ex6 {
         }
 
             if(resultadoCompra < 300){
-                resultado.append("resultado da compra: " + resultadoCompra + "Sem desconto, paga o total");
+                resultado.append("resultado da compra: " + resultadoCompra + " - Sem desconto, paga o total");
                 return resultado.toString(); // converte em String
             } else if( resultadoCompra>=300 && resultadoCompra<= 500){
-                desconto =  resultadoCompra * (5/100);
+                desconto =  resultadoCompra * (5.0/100);
                 resultadoCompra =  resultadoCompra - desconto;
-                resultado.append("Sua compra: "+ valor +"resultado da compra: " + resultadoCompra + "Desconto: " + desconto);
+                resultado.append("Sua compra: "+ valor +" resultado da compra: " + resultadoCompra + " Desconto: " + desconto);
                 return resultado.toString(); // converte em String
 
             }  else if(resultadoCompra>=501 && resultadoCompra<=1000 ){
-                desconto =  resultadoCompra * (10/100);
+                desconto =  resultadoCompra * (10.0/100);
                 resultadoCompra =  resultadoCompra - desconto;
-                resultado.append("Sua compra: "+ valor +"resultado da compra: " + resultadoCompra + "Desconto: " + desconto);
+                resultado.append("Sua compra: "+ valor +" resultado da compra: " + resultadoCompra + "Desconto: " + desconto);
                 return resultado.toString(); // converte em String
 
             } else {
-                desconto =  resultadoCompra * (12/100);
+                desconto =  resultadoCompra * (12.0/100);
                 resultadoCompra =  resultadoCompra - desconto;
-                resultado.append("Sua compra: "+ valor +"resultado da compra: " + resultadoCompra + "Desconto: " + desconto);
+                resultado.append("Sua compra: "+ valor +"resultado da compra: " + resultadoCompra + " Desconto: " + desconto);
                 return resultado.toString(); // converte em String
             }
 

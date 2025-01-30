@@ -14,6 +14,8 @@ public class Exercicios {
             System.out.println("2 - Exercicio 2");
             System.out.println("3 - Exercicio 3");
             System.out.println("4 - Exercicio 4");
+            System.out.println("5 - Exercicio 5");
+            System.out.println("6 - Exercicio 6");
             System.out.println("0  para sair");
 
 
@@ -55,8 +57,8 @@ public class Exercicios {
 
                         int opcaoM;
                         do {
-                            System.out.println("1 - Digite para adicionar o cliente: ");
-                            System.out.println("0 - Digite para sair: ");
+                            System.out.println("1 - Para adicionar o cliente: ");
+                            System.out.println("0 - Para sair ");
                             opcaoM = sc.nextInt();
 
                           if (opcaoM ==1 ){
@@ -85,12 +87,28 @@ public class Exercicios {
       do {
 
         System.out.println("Digite o valor do produto: ");
+        System.out.println("Digite -1 se acabar os produtos ");
         valorProduto = sc.nextInt();
-        produtos.add(valorProduto);
+        if(valorProduto>= 0) {
+          produtos.add(valorProduto);
+        }  else if(valorProduto == -1){
+            System.out.println("Acabou a compra");
+        } else {
+            System.out.println("Inválido");
+        }
     } while (valorProduto!=-1);
 
     Ex6 resultado6 = new Ex6(produtos);
     System.out.println(resultado6.desconto());
+    int segundos = 5;
+        for (int i = segundos; i > 0; i--) {
+            System.out.println("Faltam " + i + " segundos... para liberar o caixa");
+            try {
+                Thread.sleep(1000); // Pausa por 1 segundo
+            } catch (InterruptedException e) {
+                System.out.println("Thread interrompida");
+            }
+        }
 
 
     }
