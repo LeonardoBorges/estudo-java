@@ -4,9 +4,12 @@ import java.util.ArrayList;
 public class Ex4 {
     private int num;
     private ArrayList<Integer> lista = new ArrayList<>();
+
     public Ex4(int valor ){
         this.num = valor;
     }
+
+
     public String fibonacci(){
         int cont = 0;
         int aux =1;
