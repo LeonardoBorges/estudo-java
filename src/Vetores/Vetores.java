@@ -27,7 +27,7 @@ public class Vetores {
         double media= 0;
 
         for (int i= 0; i < semana; i++){
-            System.out.println("Digite o valor do imovel " + i);
+            System.out.println("Digite o valor do imovel " + i +1);
             imoveis[i] = sc.nextDouble();
         }
         System.out.println(imoveis);
