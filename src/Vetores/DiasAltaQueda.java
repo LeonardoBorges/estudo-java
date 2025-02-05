@@ -17,9 +17,7 @@ public class DiasAltaQueda {
 
             if(i == 0 ){
                 System.out.println("Dias alta 0:" + aux1);
-                aux1++;
             } else if (precos[i] > precos[i -1]) {
-                System.out.println("Dias alta:" + aux1);
                 aux1++;
             } else {
                 aux2++;
@@ -28,6 +26,7 @@ public class DiasAltaQueda {
         }
 
         System.out.println("Dias alta:" + aux1);
+        System.out.println("Dias alta:" + aux2);
 
 
 
