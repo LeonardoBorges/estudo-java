@@ -5,24 +5,31 @@ import java.util.Scanner;
 public class MenorMaior {
 
     public static void main(String[] args) {
+        //maior e menor
         Scanner sc = new Scanner(System.in);
+
         int dias = 10;
         double[] precos = new double[dias];
-        double media= 0;
-        double aux1 = Double.MIN_VALUE;;
-        int[] aux2 = new int[1];
-
         for (int i= 0; i < 10; i++){
-            System.out.println("Digite o valor do imovel " + i);
+            System.out.println("Digite o valor" + i);
             precos[i] = sc.nextDouble();
         }
 
-        for (int i = 0; i < 10; i++) {
-            if (precos[i] > aux1) {
-                aux1 = precos[i];
-                aux2[0] = i;
+
+        int left = 0;
+        int right = dias - 1;
+        double maior = precos[0];
+
+        // Usando dois ponteiros para encontrar o maior valor
+        while (left <= right) {
+            if (precos[left] >= precos[right]) {
+                maior = precos[left];
+                left++;
+            } else {
+                maior = precos[right];
+                right--;
             }
         }
-        System.out.println("Maior: " + aux1);
+        System.out.println("Maior: " + maior);
     }
 }
