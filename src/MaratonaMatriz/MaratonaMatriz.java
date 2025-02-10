@@ -14,19 +14,19 @@ public class MaratonaMatriz {
         int linhas = matrizJuros.length;
         int colunas = matrizJuros[0].length;
         double tx = 4;
-        double[] rendaMensal = new double[4];
+
+
         for (int i = 0; i <linhas ; i++) {
             matrizJuros[i][0] = tx;
             tx+=2;
         }
+
         System.out.println();
         System.out.println("Simulação de Previdencia Privada");
         System.out.println("Idade atual: " +  30 + " anos");
         System.out.println("Contribuição mensal R$ " + p);
         System.out.println("Taxa de juros anual esperada: 6%");
         System.out.println("Idade desejada para aposentadoria: " + idadeAposentaroria + " anos");
-
-
 
 
         for (int i = 0; i < linhas; i++) {
