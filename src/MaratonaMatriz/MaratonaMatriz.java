@@ -52,8 +52,6 @@ public class MaratonaMatriz {
             double result =  matrizJuros[i][colunas -1] * (r/(1-(Math.pow((1+r),-m*12))));
             System.out.printf(" %.0f%%: = R$ %,.2f%n", matrizJuros[i][0], result  );
 
-
-
         }
     }
 }

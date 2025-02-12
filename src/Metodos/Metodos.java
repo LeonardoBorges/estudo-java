@@ -59,7 +59,7 @@ public class Metodos {
                     int inter = sc.nextInt();
 
                     resultado = new Ex4();
-                    //System.out.println("Media Movel: " + ((Ex4)resultado).calcularMediaMovel(precos, inter));
+                    System.out.println("Media Movel: " + ((Ex4)resultado).calcularMediaMovel(precos, inter));
                     break;
                 case 5:
                     //resultado = new Ex5(num);

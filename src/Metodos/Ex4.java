@@ -1,26 +1,23 @@
-/*package Metodos;
+package Metodos;
 
 import java.util.Arrays;
 
 public class Ex4 {
 
-    public Arrays calcularMediaMovel(double[] precos, int inter){
-        int intervalo = 0;
-        int media = 0;
-        double[] mediaMovel = new double[intervalo];
-        int j=0;
+    public double[] calcularMediaMovel(double[] precos, int intervalo){
+            int quantidadeMedias = precos.length - intervalo + 1;
+            double[] medias = new double[quantidadeMedias];
 
-        for (int i = 0; i >= precos.length-intervalo; i++) {
-            j++;
-
-            if (j==3){
-                mediaMovel[j] = (precos[i] + precos[i+1] + precos[i+2])/intervalo;
-                j = 0;
+            for (int i = 0; i < quantidadeMedias; i++) {
+                double soma = 0;
+                for (int j = 0; j < intervalo; j++) {
+                    soma += precos[i + j];
+                }
+                medias[i] = soma / intervalo;
             }
+
+            return medias;
         }
-        return mediaMovel;
-    }
 }
 
 
- */

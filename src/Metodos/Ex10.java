@@ -1,22 +1,20 @@
-/*
 package Metodos;
-
 
 import java.util.Arrays;
 import java.util.Random;
 
 public class Ex10 {
-    public Arrays simularPrecoMonteCarlo(double preco, double media, double volatilidade, int periodos){
+    public double[] simularPrecoMonteCarlo(double preco, double media, double volatilidade, int periodos){
         double[] precosSimulados = new double[periodos];
         Random gau = new Random();
-        double drift = 1.0;
-        double z= gau.nextGaussian() + drift;
+        precosSimulados[0] = preco;
+
         for (int i = 1; i < periodos ; i++) {
-            //precosSimulados[i] = preco[i-1] + Math.pow();
+            double z= gau.nextGaussian();
+            precosSimulados[i] = precosSimulados[i-1] * (Math.exp(media+volatilidade*z));
         }
 
+        return precosSimulados;
     }
+
 }
-
-
- */
