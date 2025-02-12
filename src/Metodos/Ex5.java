@@ -1,4 +1,4 @@
-package Metodos;
+/*package Metodos;
 
 public class Ex5 {
     public String compararAtivos(double ativo1, double ativo2){
@@ -6,3 +6,4 @@ public class Ex5 {
         //else return System.out.println("o maior é ativo 2");
     }
 }
+*/

@@ -1,4 +1,4 @@
-package Metodos;
+/*package Metodos;
 
 import java.util.Arrays;
 
@@ -21,3 +21,6 @@ public class Ex4 {
         return mediaMovel;
     }
 }
+
+
+ */
