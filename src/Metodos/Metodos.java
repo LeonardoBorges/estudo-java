@@ -3,13 +3,14 @@ package Metodos;
 import Exercicios.*;
 import Exercicios.Ex1;
 
+import java.text.DecimalFormat;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Metodos {
     public static void main(String[] args) {
-        int num;
+
         int opcao;
-        int segundos = 5;
         Scanner sc = new Scanner(System.in);
         Object resultado = null;
 
@@ -59,12 +60,62 @@ public class Metodos {
                     int inter = sc.nextInt();
 
                     resultado = new Ex4();
-                    System.out.println("Media Movel: " + ((Ex4)resultado).calcularMediaMovel(precos, inter));
+                    System.out.println("Media Movel: " + Arrays.toString(((Ex4)resultado).calcularMediaMovel(precos, inter)));
                     break;
                 case 5:
-                    //resultado = new Ex5(num);
-                    break;
+                    resultado = new Ex5();
+                    double ativo1 = 5.0;
+                    double ativo2 = 4.5;
 
+                    String compara = ((Ex5) resultado).compararAtivos(ativo1, ativo2);
+
+                    System.out.println(compara);
+                    break;
+                case 6:
+                    double[] valores;
+                    int qtdd;
+                    System.out.println("\nQuantos elementos você quer calcular: ");
+                    qtdd = sc.nextInt();
+                    valores = new double[qtdd];
+                    for(int i = 0; i<qtdd;i++){
+                        System.out.println("Digite o valor do elemento da posição: " + (i + 1));
+                        valores[i] = sc.nextDouble();
+                    }
+
+                    resultado = new Ex6();
+                    double desvio = ((Ex6) resultado).desvioPradao(valores);
+
+                    DecimalFormat df = new DecimalFormat("#.00");
+                    String desvioFormatado = df.format(desvio);
+
+                    System.out.println("Resultado do desvio padrão populacional ~= " + desvio);
+
+                    break;
+                case 7:
+                    double[] ativos = new double[3];
+                    double[] retorno = new double[3];
+                    for (int i = 0; i <3 ; i++) {
+                        ativos[i] = sc.nextDouble();
+                    }
+
+                    for (int i = 0; i <3 ; i++) {
+                        retorno[i] = sc.nextDouble();
+                    }
+                    resultado = new Ex7();
+                    System.out.println(((Ex7) resultado).simularCarteira(ativos, retorno));
+                    break;
+                case 8:
+                    System.out.println(calcularJurosComposto());
+
+                    break;
+                case 10:
+                    resultado = new Ex10();
+                    double volatilidade = 0.02;
+                    double media = 0.001;
+                    int peri = 10;
+                    double preco = 100.0;
+                    System.out.printf("preco simulado = %s", Arrays.toString(((Ex10) resultado).simularPrecoMonteCarlo(preco, media, volatilidade, peri)));
+                    break;
                 default:
                     System.out.println("Escolha outro número!!");
                     break;
@@ -87,10 +138,17 @@ public class Metodos {
         System.out.println("Digite o(s) ano(s): ");
         int anos = sc.nextInt();
 
-        double saldo = valor + ((valor*tx)*anos );
+        return valor + ((valor*tx)*anos );
 
-        return saldo;
+    }
 
+    public static double calcularJurosComposto(){
+        int meses= 12;
+        double capital = 1000.0;
+        double tx = 0.02;
+        double total = 0;
+
+       return capital * Math.pow(1+tx, meses);
     }
 
 }
