@@ -30,6 +30,6 @@ public class MenorMaior {
                 right--;
             }
         }
-        System.out.println("Maior: " + maior);
+            System.out.println("Maior: " + maior);
     }
 }

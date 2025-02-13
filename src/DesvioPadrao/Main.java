@@ -9,7 +9,7 @@ public class Main {
 
         Scanner scanner= new Scanner(System.in);
         int opcao;
-        int[] valores;
+        double[] valores;
         int qtdd;
         System.out.println("Bem vindo ao calculo de desvio padrão!! ");
 
@@ -22,12 +22,12 @@ public class Main {
 
             System.out.println("\nQuantos elementos você quer calcular: ");
             qtdd = scanner.nextInt();
-            valores = new int[qtdd];
+            valores = new double[qtdd];
 
            if(opcao == 1){
                for(int i = 0; i<qtdd;i++){
                    System.out.println("Digite o valor do elemento da posição: " + (i + 1));
-                   valores[i] = scanner.nextInt();
+                   valores[i] = scanner.nextDouble();
                }
 
 
@@ -44,7 +44,7 @@ public class Main {
            } else {
                for(int i = 0; i<qtdd;i++){
                    System.out.println("Digite o valor do elemento da posição: " + (i + 1));
-                   valores[i] = scanner.nextInt();
+                   valores[i] = scanner.nextDouble();
                }
 
 

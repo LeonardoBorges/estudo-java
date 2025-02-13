@@ -68,6 +68,10 @@ public class Metodos {
                 default:
                     System.out.println("Escolha outro número!!");
                     break;
+                case 6:
+                    resultado = new Ex6();
+                    //System.out.println("Media Movel: " + ((Ex6)resultado));
+                    break;
             }
         } while (opcao!=0);
 

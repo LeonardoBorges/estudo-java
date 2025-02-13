@@ -10,7 +10,7 @@ public class Contas {
     private double desvio;
 
 
-    public double DesvioPadrao(int[] valores){
+    public double DesvioPadrao(double[] valores){
         soma = 0;  // Inicializar soma
         somaDesvio = 0;  // Inicializar somaDesvio
         qtdd = valores.length;;
@@ -22,7 +22,7 @@ public class Contas {
 
         media = soma/qtdd;
         for(int i = 0; i< valores.length; i++){
-            somaDesvio += (int) Math.pow((valores[i] - media), 2);
+            somaDesvio += Math.pow((valores[i] - media), 2);
         }
 
         variancia = somaDesvio/qtdd;
@@ -32,7 +32,7 @@ public class Contas {
         return this.desvio;
     }
 
-    public double DesvioPadraoAmostral(int[] valores){
+    public double DesvioPadraoAmostral(double[] valores){
         soma = 0;  // Inicializar soma
         somaDesvio = 0;  // Inicializar somaDesvio
         qtdd = valores.length;;
