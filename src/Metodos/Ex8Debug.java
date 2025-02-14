@@ -23,22 +23,26 @@ public class Ex8Debug {
         }
 
         for (int i = 1; i <n+1 ; i++) {
+            valorJuros = p * r;
+            amortizacao = pmt - valorJuros;
+            double saldoDevAntes = p;
+            p = p-amortizacao;
             for (int j = 0; j < matriz[0].length ; j++) {
                 switch (j) {
                     case (0):
-                        matriz[i][j] = n - i + 1;
+                        matriz[i][j] = i;
                         break;
                     case (1):
-                        matriz[i][j] = p + amortizacao;
+                        matriz[i][j] = saldoDevAntes;
                         break;
                     case (2):
-                        matriz[i][j] = pmt * r;
+                        matriz[i][j] = valorJuros;
                         break;
                     case (3):
-                        matriz[i][j] = pmt-valorJuros;
+                        matriz[i][j] = amortizacao;
                         break;
                     case (4):
-                        matriz[i][j] = p - amortizacao;
+                        matriz[i][j] =p;
                         break;
                 }
             }
