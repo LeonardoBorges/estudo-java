@@ -1,0 +1,171 @@
+No Java, as exceções mais comuns que podem ser tratadas em um bloco try-catch incluem:
+
+Exceções verificadas (Checked Exceptions)
+Essas exceções precisam ser tratadas obrigatoriamente no código ou declaradas na assinatura do método com throws.
+
+IOException
+
+Causa: Problemas de entrada/saída, como falha ao abrir ou ler um arquivo.
+Exemplo: Falha na leitura de um arquivo com FileReader.
+SQLException
+
+Causa: Problemas relacionados ao banco de dados.
+Exemplo: Falha em executar uma consulta SQL.
+FileNotFoundException
+
+Causa: Tentativa de abrir um arquivo inexistente.
+Exemplo: Fornecer um caminho errado para um arquivo.
+ParseException
+
+Causa: Problema ao tentar converter uma string em um formato específico.
+Exemplo: Tentar converter uma string em uma data.
+Exceções não verificadas (Unchecked Exceptions)
+Essas são subclasses de RuntimeException e não precisam ser tratadas explicitamente.
+
+NullPointerException
+
+Causa: Tentativa de acessar um método ou variável de um objeto nulo.
+Exemplo: obj.toString() onde obj é null.
+ArrayIndexOutOfBoundsException
+
+Causa: Tentativa de acessar um índice fora do limite do array.
+Exemplo: arr[10] onde o array tem apenas 5 elementos.
+ArithmeticException
+
+Causa: Erros matemáticos, como divisão por zero.
+Exemplo: int result = 10 / 0.
+NumberFormatException
+
+Causa: Problemas ao converter uma string para um número.
+Exemplo: Integer.parseInt("abc").
+ClassCastException
+
+Causa: Tentativa de converter um objeto para um tipo incompatível.
+Exemplo: String s = (String) new Object();.
+Outras Exceções Comuns
+IllegalArgumentException
+
+Causa: Argumento inválido passado para um método.
+Exemplo: Passar null para um método que não aceita valores nulos.
+IllegalStateException
+
+Causa: O estado atual do objeto não permite a execução de uma ação.
+Exemplo: Usar um Scanner após ele ter sido fechado.
+IndexOutOfBoundsException
+
+Causa: Acessar um índice inválido em listas, strings ou arrays.
+Exemplo: list.get(-1) ou string.charAt(10) em uma string com 5 caracteres.
+
+
+////////////////////////////////////////////////////////////
+
+O throw em Java é usado para lançar explicitamente uma exceção dentro do código. Ele permite que você crie suas próprias exceções ou propague exceções existentes. Vou mostrar alguns exemplos para você entender melhor.
+
+Exemplo 1: Lançando uma exceção personalizada
+java
+Copiar
+Editar
+public class Main {
+    public static void main(String[] args) {
+        try {
+            verificaIdade(15);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Erro: " + e.getMessage());
+        }
+    }
+
+    public static void verificaIdade(int idade) {
+        if (idade < 18) {
+            throw new IllegalArgumentException("Idade mínima para continuar é 18 anos."); // Lançando a exceção
+        }
+        System.out.println("Idade válida.");
+    }
+}
+Saída:
+Erro: Idade mínima para continuar é 18 anos.
+
+Exemplo 2: Lançando exceções padrão
+java
+Copiar
+Editar
+public class Main {
+    public static void main(String[] args) {
+        try {
+            divide(10, 0);
+        } catch (ArithmeticException e) {
+            System.out.println("Erro: " + e.getMessage());
+        }
+    }
+
+    public static int divide(int a, int b) {
+        if (b == 0) {
+            throw new ArithmeticException("Divisão por zero não permitida!"); // Lançando a exceção
+        }
+        return a / b;
+    }
+}
+Saída:
+Erro: Divisão por zero não permitida!
+
+Exemplo 3: Usando throw com exceções personalizadas
+Você pode criar suas próprias classes de exceção, que devem herdar de Exception (para checked exceptions) ou RuntimeException (para unchecked exceptions).
+
+Criando uma exceção personalizada
+java
+Copiar
+Editar
+class MinhaExcecao extends Exception {
+    public MinhaExcecao(String mensagem) {
+        super(mensagem);
+    }
+}
+Lançando a exceção
+java
+Copiar
+Editar
+public class Main {
+    public static void main(String[] args) {
+        try {
+            validaNome("John");
+            validaNome(null); // Lançará a exceção personalizada
+        } catch (MinhaExcecao e) {
+            System.out.println("Erro capturado: " + e.getMessage());
+        }
+    }
+
+    public static void validaNome(String nome) throws MinhaExcecao {
+        if (nome == null || nome.isEmpty()) {
+            throw new MinhaExcecao("O nome não pode ser vazio ou nulo."); // Lançando exceção personalizada
+        }
+        System.out.println("Nome válido: " + nome);
+    }
+}
+Saída:
+Erro capturado: O nome não pode ser vazio ou nulo.
+
+Exemplo 4: Repassando exceções com throws
+O throws na assinatura de um método indica que o método pode lançar uma exceção, deixando a responsabilidade de tratá-la para quem o chamar.
+
+java
+Copiar
+Editar
+public class Main {
+    public static void main(String[] args) {
+        try {
+            processaArquivo("arquivo_inexistente.txt");
+        } catch (Exception e) {
+            System.out.println("Erro ao processar o arquivo: " + e.getMessage());
+        }
+    }
+
+    public static void processaArquivo(String caminho) throws Exception {
+        if (!caminho.equals("arquivo_valido.txt")) {
+            throw new Exception("Arquivo não encontrado!"); // Lançando exceção
+        }
+        System.out.println("Arquivo processado com sucesso.");
+    }
+}
+Saída:
+Erro ao processar o arquivo: Arquivo não encontrado!
+
+Esses exemplos mostram como o throw é usado para lançar exceções explicitamente, seja com exceções padrão ou personalizadas. Você consegue manipular os erros de forma clara e segura no seu programa!
